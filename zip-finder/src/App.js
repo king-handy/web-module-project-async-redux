@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { connect } from 'react-redux';
 import './App.css';
 import Weather from './components/Weather';
 
@@ -10,4 +11,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    title: state.shared.title
+  }
+}
+
+export default connect(mapStateToProps, {})(App);
