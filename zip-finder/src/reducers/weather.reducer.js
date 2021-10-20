@@ -1,4 +1,5 @@
 const initialState = {
+    cityText: '',
     city: '',
     state: '',
     zip: ''
