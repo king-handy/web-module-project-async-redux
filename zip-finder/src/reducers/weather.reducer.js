@@ -3,8 +3,8 @@ import { GET_WEATHER_SUCCESS, UPDATE_CITY_TEXT } from "../actions/weather.action
 const initialState = {
     cityText: '',
     city: '',
-    state: '',
-    zip: ''
+    description: '',
+    temp: ''
 }
 
 export const weatherReducer = (state = initialState, action) => {
@@ -14,9 +14,9 @@ export const weatherReducer = (state = initialState, action) => {
         case GET_WEATHER_SUCCESS:
             const temp = action.weather.name.temp;
             const city = action.weather.name;
-            const description = action.waether.waether[0].description;
+            const description = action.weather.weather[0].description;
             console.log(action);
-            return {...state, city, description, temp};
+            return {...state, city, description, temp, cityText: ''};
         default:
             return state
     }

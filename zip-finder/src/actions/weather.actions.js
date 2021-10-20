@@ -9,9 +9,9 @@ export const updateCityText = text => {
 
 export const getWeather = city => dispatch => {
     console.log(city)
-    axios.get('https://api.openweathermap.org/data/2.5/forecast?q=detroit&appid=7591a829f8dd9490249d38acd17954b1').then(res => {
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=aa2aefc95ab3fbbaaf699eea4a115eaf`).then(res => {
         dispatch(getWeatherSuccess(res.data))
-        // console.log(res.data);
+        console.log(res.data);
     })
 }
 
