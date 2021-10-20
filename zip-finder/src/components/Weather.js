@@ -1,9 +1,16 @@
 import { connect } from "react-redux";
+import { getWeather, updateCityText } from "../actions/weather.actions";
 
 const Weather = (props) => {
-    console.log(props);
     return(
-        <h1>Weather</h1>
+        <div>
+            <input value={props.weather.cityText} onChange={(e) => props.updateCityText(e.target.value)} />
+            <button onClick={() => props.getWeather(props.weather.cityText)}>submit</button>
+
+            <h3>{props.weather.city}</h3>
+            <p>{props.weather.description}</p>
+            <p>{props.weather.temp}</p>
+        </div>
     )
 }
 
@@ -13,4 +20,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(Weather);
+export default connect(mapStateToProps, { updateCityText, getWeather })(Weather);
